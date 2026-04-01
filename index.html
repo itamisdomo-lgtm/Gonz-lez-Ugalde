@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transportes González & Ugalde Ltda.</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #fafaf8;
+    --yellow: #f5c800;
+    --yellow-dark: #c9a200;
+    --gray: #6b6b6b;
+    --gray-light: #e8e8e4;
+    --gray-mid: #c4c4be;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.3rem 4rem;
+    background: rgba(250,250,248,0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem; color: var(--black); text-decoration: none;
+  }
+  .nav-logo span { color: var(--yellow-dark); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--gray); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    background: var(--black) !important; color: var(--white) !important;
+    padding: 0.5rem 1.3rem; border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--yellow-dark) !important; color: var(--black) !important; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 4.5rem;
+  }
+  .hero-left {
+    padding: 7rem 4rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--yellow-dark);
+    margin-bottom: 1.4rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.6rem, 4vw, 4rem);
+    line-height: 1.08; letter-spacing: -0.02em;
+    margin-bottom: 1.6rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+  .hero-title em { font-style: italic; color: var(--gray); }
+  .hero-desc {
+    font-size: 1rem; line-height: 1.75; color: var(--gray);
+    max-width: 400px; margin-bottom: 2.8rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+  .hero-actions {
+    display: flex; gap: 1.2rem; align-items: center;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+  .btn-primary {
+    background: var(--black); color: var(--white);
+    padding: 0.85rem 2rem; font-size: 0.88rem; font-weight: 500;
+    letter-spacing: 0.04em; text-decoration: none; border-radius: 2px;
+    border: 2px solid var(--black); transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+  .btn-ghost {
+    color: var(--black); font-size: 0.88rem; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.04em;
+    display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s;
+  }
+  .btn-ghost:hover { gap: 0.8rem; }
+
+  .hero-right {
+    position: relative; overflow: hidden; background: var(--black);
+  }
+  .hero-right img {
+    width: 100%; height: 100%; object-fit: cover; opacity: 0.82;
+    animation: fadeIn 1.2s ease forwards 0.3s; opacity: 0;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(0,0,0,0.25) 0%, transparent 55%);
+  }
+  .hero-badge {
+    position: absolute; bottom: 2.5rem; right: 2.5rem;
+    background: var(--yellow); color: var(--black);
+    padding: 1.2rem 1.6rem; text-align: center;
+    animation: fadeIn 1s ease forwards 1s; opacity: 0;
+  }
+  .hero-badge .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem; line-height: 1; display: block;
+  }
+  .hero-badge .lbl {
+    font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.09em; text-transform: uppercase;
+  }
+
+  /* STATS */
+  .stats-bar {
+    background: var(--black); color: var(--white);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .stat-item {
+    padding: 2.5rem 2rem; border-right: 1px solid #1e1e1e; text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem; color: var(--yellow); display: block; margin-bottom: 0.4rem;
+  }
+  .stat-lbl {
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.09em; text-transform: uppercase; color: #777;
+  }
+
+  /* SECCIONES BASE */
+  section { padding: 7rem 4rem; }
+  .section-tag {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--yellow-dark); margin-bottom: 0.9rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1.4rem;
+  }
+
+  /* SERVICIOS */
+  #servicios { background: var(--white); }
+  .servicios-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--gray-light);
+    margin-top: 4rem; border: 1px solid var(--gray-light);
+  }
+  .servicio-card {
+    background: var(--white); padding: 2.8rem 2.4rem;
+    position: relative; overflow: hidden; transition: background 0.25s;
+  }
+  .servicio-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 3px; background: var(--yellow); transition: width 0.3s;
+  }
+  .servicio-card:hover::after { width: 100%; }
+  .servicio-card:hover { background: #fafaf2; }
+  .servicio-icon { width: 44px; height: 44px; color: var(--yellow-dark); margin-bottom: 1.4rem; }
+  .servicio-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem; margin-bottom: 0.7rem;
+  }
+  .servicio-card p { font-size: 0.9rem; line-height: 1.7; color: var(--gray); }
+
+  /* FLOTA */
+  #flota { background: var(--black); color: var(--white); }
+  #flota .section-title { color: var(--white); }
+  #flota .section-tag { color: var(--yellow); }
+  .flota-intro {
+    font-size: 1rem; line-height: 1.75; color: #999;
+    max-width: 540px; margin-bottom: 3.5rem;
+  }
+  .flota-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 280px 220px;
+    gap: 4px;
+  }
+  .flota-grid .f-big {
+    grid-column: 1 / 2; grid-row: 1 / 3;
+  }
+  .flota-photo {
+    overflow: hidden; background: #111; position: relative;
+  }
+  .flota-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.78; transition: opacity 0.3s, transform 0.5s; display: block;
+  }
+  .flota-photo:hover img { opacity: 1; transform: scale(1.04); }
+
+  /* SEGUROS */
+  #seguros {
+    background: var(--white);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+  }
+  .seguros-box {
+    background: var(--black); padding: 3rem;
+    position: relative;
+  }
+  .seguros-box::before {
+    content: ''; position: absolute;
+    top: -10px; left: -10px;
+    width: 100%; height: 100%;
+    border: 2px solid var(--yellow); z-index: -1;
+  }
+  .seguro-row {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    padding: 1.6rem 0; border-bottom: 1px solid #1e1e1e;
+  }
+  .seguro-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .seguro-row:first-child { padding-top: 0; }
+  .s-icon {
+    width: 40px; height: 40px; background: var(--yellow);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .s-icon svg { width: 18px; height: 18px; color: var(--black); }
+  .seguro-row h4 { font-size: 0.93rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+  .seguro-row p { font-size: 0.83rem; color: #777; line-height: 1.55; }
+
+  /* CLIENTES */
+  #clientes { background: var(--gray-light); }
+  .clientes-grid {
+    display: flex; flex-wrap: wrap;
+    gap: 1px; background: var(--gray-mid);
+    border: 1px solid var(--gray-mid); margin-top: 3rem;
+  }
+  .cliente-item {
+    background: var(--white); flex: 1; min-width: 160px;
+    padding: 2.2rem 2.5rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; color: var(--gray);
+    transition: background 0.2s, color 0.2s;
+    cursor: default;
+  }
+  .cliente-item:hover { background: var(--yellow); color: var(--black); }
+
+  /* CONTACTO */
+  #contacto {
+    background: var(--black); color: var(--white);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+  }
+  #contacto .section-title { color: var(--white); }
+  #contacto .section-tag { color: var(--yellow); }
+  .contact-sub {
+    font-size: 1rem; line-height: 1.75; color: #888; margin-bottom: 3rem;
+  }
+  .contact-rows { display: flex; flex-direction: column; gap: 0; }
+  .c-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.4rem 0; border-bottom: 1px solid #181818;
+  }
+  .c-row:last-child { border-bottom: none; }
+  .c-icon {
+    width: 42px; height: 42px; background: #141414;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .c-icon svg { width: 17px; height: 17px; color: var(--yellow); }
+  .c-lbl { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #444; margin-bottom: 0.2rem; }
+  .c-val { font-size: 0.97rem; color: var(--white); }
+  .c-val a { color: var(--white); text-decoration: none; transition: color 0.2s; }
+  .c-val a:hover { color: var(--yellow); }
+
+  .contact-card {
+    border: 1px solid #1e1e1e; padding: 3rem;
+  }
+  .contact-card .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; margin-bottom: 0.3rem; color: var(--white);
+  }
+  .contact-card .role {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--yellow-dark); margin-bottom: 2.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #050505; color: #3a3a3a;
+    padding: 1.8rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.78rem; letter-spacing: 0.03em;
+    border-top: 1px solid #111;
+  }
+  .ft-logo { font-family: 'DM Serif Display', serif; color: #555; font-size: 0.95rem; }
+  .ft-logo span { color: var(--yellow-dark); }
+
+  /* ANIMACIONES */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 0.82; }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 6rem 1.5rem 3rem; }
+    .hero-right { height: 60vw; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); }
+    section { padding: 5rem 1.5rem; }
+    .servicios-grid { grid-template-columns: 1fr; }
+    .flota-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .flota-grid .f-big { grid-column: auto; grid-row: auto; height: 220px; }
+    .flota-photo { height: 200px; }
+    #seguros, #contacto { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">González <span>&</span> Ugalde</a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#flota">Flota</a></li>
+    <li><a href="#seguros">Seguros</a></li>
+    <li><a href="#clientes">Clientes</a></li>
+    <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Transporte de carga · Desde 2014 · San Antonio</p>
+    <h1 class="hero-title">
+      Movemos Chile<br><em>punto a punto</em>
+    </h1>
+    <p class="hero-desc">
+      Transportes González & Ugalde Ltda. ofrece carga seca y refrigerada con flota propia, cobertura nacional y monitoreo GPS en tiempo real.
+    </p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">Solicitar servicio</a>
+      <a href="#servicios" class="btn-ghost">Ver servicios →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="img/WhatsApp_Image_2026-03-25_at_4_09_18_PM.jpeg" alt="Flota González y Ugalde">
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">
+      <span class="num">10+</span>
+      <span class="lbl">Camiones propios</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <span class="stat-num">2014</span>
+    <span class="stat-lbl">Año de fundación</span>
+  </div>
+  <div class="stat-item reveal">
+    <span class="stat-num">10+</span>
+    <span class="stat-lbl">Camiones propios</span>
+  </div>
+  <div class="stat-item reveal">
+    <span class="stat-num">40"</span>
+    <span class="stat-lbl">Capacidad contenedor</span>
+  </div>
+  <div class="stat-item reveal">
+    <span class="stat-num">5.000</span>
+    <span class="stat-lbl">UF seguro de carga</span>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <p class="section-tag reveal">Lo que hacemos</p>
+  <h2 class="section-title reveal">Nuestros servicios</h2>
+  <div class="servicios-grid">
+    <div class="servicio-card reveal">
+      <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+      </svg>
+      <h3>Carga completa punto a punto</h3>
+      <p>Transporte directo sin intermediarios. Su carga llega exactamente donde necesita, en el tiempo acordado.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+      </svg>
+      <h3>Carga seca</h3>
+      <p>Tracto camiones equipados para el traslado eficiente de contenedores de 40" en rutas nacionales.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/>
+      </svg>
+      <h3>Carga refrigerada</h3>
+      <p>Unidades con sistema de frío para garantizar la cadena de frío en productos perecibles y exportación agrícola.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+      </svg>
+      <h3>Depósitos de contenedores</h3>
+      <p>Transporte hacia y desde depósitos portuarios, con amplia experiencia en operaciones en Puerto San Antonio.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><line x1="2" y1="12" x2="22" y2="12"/>
+      </svg>
+      <h3>Cobertura nacional</h3>
+      <p>Red de flota propia y terceros a lo largo de todo el territorio chileno para cualquier destino.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+      <h3>Monitoreo GPS</h3>
+      <p>Seguimiento en tiempo real de camión y chasis. Transparencia y trazabilidad total en cada viaje.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FLOTA -->
+<section id="flota">
+  <p class="section-tag reveal">Equipamiento</p>
+  <h2 class="section-title reveal">Nuestra flota</h2>
+  <p class="flota-intro reveal">
+    10 camiones propios más red de terceros a nivel nacional. Freightliner, International y Volvo FH con unidades refrigeradas para contenedores de 40".
+  </p>
+  <div class="flota-grid">
+    <div class="flota-photo f-big reveal">
+      <img src="img/WhatsApp_Image_2026-03-25_at_4_09_17_PM2.jpeg" alt="Flota González y Ugalde">
+    </div>
+    <div class="flota-photo reveal">
+      <img src="img/WhatsApp_Image_2026-03-25_at_4_09_17_PM1.jpeg" alt="Camiones amarillos">
+    </div>
+    <div class="flota-photo reveal">
+      <img src="img/WhatsApp_Image_2026-03-25_at_4_09_17_PM3.jpeg" alt="Camión nocturno">
+    </div>
+    <div class="flota-photo reveal">
+      <img src="img/WhatsApp_Image_2026-03-25_at_4_09_18_PM1.jpeg" alt="Camión Freightliner">
+    </div>
+    <div class="flota-photo reveal">
+      <img src="img/WhatsApp_Image_2026-03-25_at_4_09_18_PM2.jpeg" alt="Volvo FH">
+    </div>
+  </div>
+</section>
+
+<!-- SEGUROS -->
+<section id="seguros">
+  <div>
+    <p class="section-tag reveal">Protección total</p>
+    <h2 class="section-title reveal">Seguros de<br>unidades y carga</h2>
+    <p class="reveal" style="font-size:1rem;line-height:1.75;color:var(--gray);max-width:400px;">
+      Cada operación está respaldada por pólizas completas. Su mercadería viaja protegida y monitorizada desde el origen hasta el destino final.
+    </p>
+  </div>
+  <div class="seguros-box reveal">
+    <div class="seguro-row">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div>
+        <h4>Seguro contra todo riesgo</h4>
+        <p>Póliza de responsabilidad civil y daños propios en todas las unidades.</p>
+      </div>
+    </div>
+    <div class="seguro-row">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/>
+        </svg>
+      </div>
+      <div>
+        <h4>Seguro de carga hasta 5.000 UF</h4>
+        <p>Cobertura amplia para proteger el valor total de su mercadería.</p>
+      </div>
+    </div>
+    <div class="seguro-row">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+      </div>
+      <div>
+        <h4>Sistema GPS para camión y chasis</h4>
+        <p>Monitoreo en tiempo real de la posición y estado de cada unidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes">
+  <p class="section-tag reveal">Confían en nosotros</p>
+  <h2 class="section-title reveal">Algunos de nuestros clientes</h2>
+  <div class="clientes-grid reveal">
+    <div class="cliente-item">Real Time Logistics</div>
+    <div class="cliente-item">Unifrutti</div>
+    <div class="cliente-item">Exportadora Los Lirios</div>
+    <div class="cliente-item">ChilFresh</div>
+    <div class="cliente-item">SurTerra</div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div>
+    <p class="section-tag reveal">Hablemos</p>
+    <h2 class="section-title reveal">¿Necesita mover<br>su carga?</h2>
+    <p class="contact-sub reveal">Contáctenos directamente. Respondemos rápido y le entregamos la solución que su operación necesita.</p>
+    <div class="contact-rows reveal">
+      <div class="c-row">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="c-lbl">Dirección</div>
+          <div class="c-val">Av Chile 909, San Antonio, Chile</div>
+        </div>
+      </div>
+      <div class="c-row">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="c-lbl">Teléfono</div>
+          <div class="c-val"><a href="tel:+56968667083">+56 9 6866 7083</a></div>
+        </div>
+      </div>
+      <div class="c-row">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="c-lbl">Correo</div>
+          <div class="c-val"><a href="mailto:Logisticagonzalezyugalde@gmail.com">Logisticagonzalezyugalde@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-card reveal">
+    <div class="name">Belén Pizarro M.</div>
+    <div class="role">Ventas &amp; Logística</div>
+    <div class="contact-rows">
+      <div class="c-row">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="c-lbl">Celular</div>
+          <div class="c-val"><a href="tel:+56968667083">+56 9 6866 7083</a></div>
+        </div>
+      </div>
+      <div class="c-row">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="c-lbl">Email</div>
+          <div class="c-val" style="font-size:0.83rem;"><a href="mailto:Logisticagonzalezyugalde@gmail.com">Logisticagonzalezyugalde@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="ft-logo">González <span>&</span> Ugalde Ltda.</span>
+  <span>San Antonio, Chile · Desde 2014</span>
+  <span>Transporte de carga nacional</span>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
