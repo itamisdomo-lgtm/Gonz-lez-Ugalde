@@ -3,331 +3,517 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transportes González & Ugalde Ltda.</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<title>Transportes González & Ugalde Ltda. | San Antonio, Chile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --black: #0a0a0a;
-    --white: #fafaf8;
+    --black: #0c0c0a;
+    --white: #f7f5f0;
     --yellow: #f5c800;
     --yellow-dark: #c9a200;
+    --yellow-glow: rgba(245,200,0,0.15);
     --gray: #6b6b6b;
-    --gray-light: #e8e8e4;
-    --gray-mid: #c4c4be;
+    --gray-light: #e4e2dc;
+    --gray-mid: #b8b5ae;
+    --surface: #111109;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
 
-  /* NAV */
+  /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.3rem 4rem;
-    background: rgba(250,250,248,0.94);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--gray-light);
+    padding: 1.1rem 4rem;
+    background: rgba(12,12,10,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(245,200,0,0.15);
   }
   .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem; color: var(--black); text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem; letter-spacing: 0.1em;
+    color: var(--white); text-decoration: none;
   }
-  .nav-logo span { color: var(--yellow-dark); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-logo span { color: var(--yellow); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
   .nav-links a {
-    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.07em;
-    text-transform: uppercase; color: var(--gray); text-decoration: none;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #999; text-decoration: none;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--black); }
+  .nav-links a:hover { color: var(--white); }
   .nav-cta {
-    background: var(--black) !important; color: var(--white) !important;
-    padding: 0.5rem 1.3rem; border-radius: 2px;
+    background: var(--yellow) !important;
+    color: var(--black) !important;
+    padding: 0.45rem 1.2rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.06em !important;
     transition: background 0.2s !important;
   }
-  .nav-cta:hover { background: var(--yellow-dark) !important; color: var(--black) !important; }
+  .nav-cta:hover { background: #fff !important; color: var(--black) !important; }
 
-  /* HERO */
+  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: grid; grid-template-columns: 1fr 1fr;
-    padding-top: 4.5rem;
+    padding-top: 0;
+    position: relative;
   }
   .hero-left {
-    padding: 7rem 4rem 5rem;
+    background: var(--black);
+    padding: 10rem 4rem 5rem;
     display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute; top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--yellow-glow) 0%, transparent 70%);
+    pointer-events: none;
   }
   .hero-eyebrow {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--yellow-dark);
-    margin-bottom: 1.4rem;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--yellow);
+    margin-bottom: 1.6rem;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s;
   }
   .hero-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.6rem, 4vw, 4rem);
-    line-height: 1.08; letter-spacing: -0.02em;
-    margin-bottom: 1.6rem;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 7vw, 7rem);
+    line-height: 0.95; letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 1.8rem;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
   }
-  .hero-title em { font-style: italic; color: var(--gray); }
+  .hero-title .accent { color: var(--yellow); }
   .hero-desc {
-    font-size: 1rem; line-height: 1.75; color: var(--gray);
-    max-width: 400px; margin-bottom: 2.8rem;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s;
+    font-size: 0.97rem; line-height: 1.8; color: #888;
+    max-width: 380px; margin-bottom: 3rem;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.7s;
   }
   .hero-actions {
-    display: flex; gap: 1.2rem; align-items: center;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s;
+    display: flex; gap: 1rem; align-items: center;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.9s;
   }
   .btn-primary {
-    background: var(--black); color: var(--white);
-    padding: 0.85rem 2rem; font-size: 0.88rem; font-weight: 500;
-    letter-spacing: 0.04em; text-decoration: none; border-radius: 2px;
-    border: 2px solid var(--black); transition: all 0.2s;
+    background: var(--yellow); color: var(--black);
+    padding: 0.9rem 2.2rem; font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border: none;
+    transition: all 0.2s; clip-path: polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);
   }
-  .btn-primary:hover { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+  .btn-primary:hover { background: var(--white); transform: translateY(-2px); }
   .btn-ghost {
-    color: var(--black); font-size: 0.88rem; font-weight: 500;
-    text-decoration: none; letter-spacing: 0.04em;
-    display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s;
+    color: #777; font-size: 0.83rem; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.05em;
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: color 0.2s, gap 0.2s;
   }
-  .btn-ghost:hover { gap: 0.8rem; }
+  .btn-ghost:hover { color: var(--white); gap: 0.9rem; }
 
   .hero-right {
-    position: relative; overflow: hidden; background: var(--black);
+    position: relative; overflow: hidden;
   }
   .hero-right img {
-    width: 100%; height: 100%; object-fit: cover; opacity: 0.82;
-    animation: fadeIn 1.2s ease forwards 0.3s; opacity: 0;
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.75) contrast(1.1);
+    opacity: 0; animation: fadeIn 1.2s ease forwards 0.4s;
   }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(0,0,0,0.25) 0%, transparent 55%);
+    background: linear-gradient(90deg, var(--black) 0%, transparent 30%);
   }
   .hero-badge {
     position: absolute; bottom: 2.5rem; right: 2.5rem;
     background: var(--yellow); color: var(--black);
-    padding: 1.2rem 1.6rem; text-align: center;
-    animation: fadeIn 1s ease forwards 1s; opacity: 0;
+    padding: 1.4rem 1.8rem; text-align: center;
+    clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
+    opacity: 0; animation: fadeIn 0.8s ease forwards 1.1s;
   }
   .hero-badge .num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.4rem; line-height: 1; display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem; line-height: 1; display: block; letter-spacing: 0.05em;
   }
   .hero-badge .lbl {
-    font-size: 0.68rem; font-weight: 600;
-    letter-spacing: 0.09em; text-transform: uppercase;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
   }
 
-  /* STATS */
+  /* ── TICKER ── */
+  .ticker-wrap {
+    background: var(--yellow); overflow: hidden;
+    padding: 0.75rem 0; white-space: nowrap;
+  }
+  .ticker {
+    display: inline-flex; gap: 3rem;
+    animation: ticker 20s linear infinite;
+  }
+  .ticker span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; letter-spacing: 0.15em; color: var(--black);
+  }
+  .ticker-dot { color: rgba(0,0,0,0.3); }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── STATS ── */
   .stats-bar {
-    background: var(--black); color: var(--white);
+    background: var(--black);
     display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid #1a1a16;
   }
   .stat-item {
-    padding: 2.5rem 2rem; border-right: 1px solid #1e1e1e; text-align: center;
+    padding: 3rem 2rem;
+    border-right: 1px solid #1a1a16;
+    text-align: center; position: relative;
   }
+  .stat-item::after {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 0; height: 2px; background: var(--yellow);
+    transition: width 0.4s ease;
+  }
+  .stat-item:hover::after { width: 60%; }
   .stat-item:last-child { border-right: none; }
   .stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.5rem; color: var(--yellow); display: block; margin-bottom: 0.4rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem; color: var(--yellow);
+    display: block; margin-bottom: 0.4rem; letter-spacing: 0.05em;
   }
   .stat-lbl {
-    font-size: 0.75rem; font-weight: 500;
-    letter-spacing: 0.09em; text-transform: uppercase; color: #777;
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; color: #555;
   }
 
-  /* SECCIONES BASE */
+  /* ── SECCIONES ── */
   section { padding: 7rem 4rem; }
   .section-tag {
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--yellow-dark); margin-bottom: 0.9rem;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--yellow-dark); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-tag::before {
+    content: ''; display: block;
+    width: 28px; height: 2px; background: var(--yellow-dark);
   }
   .section-title {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.9rem, 3vw, 2.8rem);
-    line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1.4rem;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.4rem;
   }
 
-  /* SERVICIOS */
+  /* ── SERVICIOS ── */
   #servicios { background: var(--white); }
+  .servicios-intro {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem; gap: 2rem;
+  }
+  .servicios-lead {
+    font-size: 1rem; line-height: 1.75; color: var(--gray);
+    max-width: 420px;
+  }
   .servicios-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 1px; background: var(--gray-light);
-    margin-top: 4rem; border: 1px solid var(--gray-light);
+    border: 1px solid var(--gray-light);
   }
   .servicio-card {
     background: var(--white); padding: 2.8rem 2.4rem;
     position: relative; overflow: hidden; transition: background 0.25s;
+    cursor: default;
   }
+  .servicio-card::before {
+    content: attr(data-num);
+    position: absolute; top: 1.5rem; right: 1.8rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem; color: rgba(0,0,0,0.04);
+    line-height: 1; pointer-events: none;
+    transition: color 0.3s;
+  }
+  .servicio-card:hover::before { color: rgba(245,200,0,0.15); }
   .servicio-card::after {
     content: ''; position: absolute; bottom: 0; left: 0;
-    width: 0; height: 3px; background: var(--yellow); transition: width 0.3s;
+    width: 0; height: 3px; background: var(--yellow); transition: width 0.35s ease;
   }
   .servicio-card:hover::after { width: 100%; }
-  .servicio-card:hover { background: #fafaf2; }
-  .servicio-icon { width: 44px; height: 44px; color: var(--yellow-dark); margin-bottom: 1.4rem; }
+  .servicio-card:hover { background: #faf8f0; }
+  .servicio-icon { width: 40px; height: 40px; color: var(--yellow-dark); margin-bottom: 1.4rem; }
   .servicio-card h3 {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem; margin-bottom: 0.7rem;
+    font-size: 1.2rem; margin-bottom: 0.7rem;
   }
-  .servicio-card p { font-size: 0.9rem; line-height: 1.7; color: var(--gray); }
+  .servicio-card p { font-size: 0.88rem; line-height: 1.75; color: var(--gray); }
 
-  /* FLOTA */
-  #flota { background: var(--black); color: var(--white); }
+  /* ── FLOTA ── */
+  #flota { background: var(--black); color: var(--white); padding-bottom: 0; }
   #flota .section-title { color: var(--white); }
-  #flota .section-tag { color: var(--yellow); }
+  .flota-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem; gap: 2rem;
+  }
   .flota-intro {
-    font-size: 1rem; line-height: 1.75; color: #999;
-    max-width: 540px; margin-bottom: 3.5rem;
+    font-size: 1rem; line-height: 1.8; color: #666;
+    max-width: 460px;
   }
-  .flota-grid {
+  .flota-stats {
+    display: flex; gap: 2.5rem;
+  }
+  .f-stat { text-align: center; }
+  .f-stat .n {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem; color: var(--yellow); display: block; letter-spacing: 0.05em;
+  }
+  .f-stat .l {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: #444;
+  }
+  .flota-mosaic {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 280px 220px;
-    gap: 4px;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 320px 240px;
+    gap: 3px;
   }
-  .flota-grid .f-big {
-    grid-column: 1 / 2; grid-row: 1 / 3;
+  .f-photo {
+    overflow: hidden; background: #0a0a08; position: relative;
   }
-  .flota-photo {
-    overflow: hidden; background: #111; position: relative;
-  }
-  .flota-photo img {
+  .f-photo.tall { grid-row: 1 / 3; }
+  .f-photo img {
     width: 100%; height: 100%; object-fit: cover;
-    opacity: 0.78; transition: opacity 0.3s, transform 0.5s; display: block;
+    filter: brightness(0.8) contrast(1.1);
+    transition: transform 0.6s ease, filter 0.4s ease;
+    display: block;
   }
-  .flota-photo:hover img { opacity: 1; transform: scale(1.04); }
+  .f-photo:hover img { transform: scale(1.06); filter: brightness(0.95) contrast(1.1); }
 
-  /* SEGUROS */
+  /* ── SEGUROS ── */
   #seguros {
     background: var(--white);
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 6rem; align-items: center;
+    gap: 0; padding: 0;
   }
-  .seguros-box {
-    background: var(--black); padding: 3rem;
+  .seguros-left {
+    padding: 7rem 5rem 7rem 4rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .seguros-desc {
+    font-size: 1rem; line-height: 1.8; color: var(--gray);
+    max-width: 380px; margin-bottom: 0;
+  }
+  .seguros-right {
+    background: var(--black);
+    padding: 5rem 4rem 5rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
     position: relative;
   }
-  .seguros-box::before {
-    content: ''; position: absolute;
-    top: -10px; left: -10px;
-    width: 100%; height: 100%;
-    border: 2px solid var(--yellow); z-index: -1;
+  .seguros-right::before {
+    content: '';
+    position: absolute; top: 3rem; left: -2px;
+    width: 4px; height: calc(100% - 6rem);
+    background: var(--yellow);
   }
   .seguro-row {
-    display: flex; gap: 1.2rem; align-items: flex-start;
-    padding: 1.6rem 0; border-bottom: 1px solid #1e1e1e;
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    padding: 2rem 0; border-bottom: 1px solid #1a1a16;
   }
   .seguro-row:last-child { border-bottom: none; padding-bottom: 0; }
   .seguro-row:first-child { padding-top: 0; }
   .s-icon {
-    width: 40px; height: 40px; background: var(--yellow);
+    width: 44px; height: 44px; background: var(--yellow);
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    clip-path: polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%);
   }
   .s-icon svg { width: 18px; height: 18px; color: var(--black); }
-  .seguro-row h4 { font-size: 0.93rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
-  .seguro-row p { font-size: 0.83rem; color: #777; line-height: 1.55; }
+  .seguro-row h4 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+  .seguro-row p { font-size: 0.83rem; color: #555; line-height: 1.6; }
 
-  /* CLIENTES */
-  #clientes { background: var(--gray-light); }
+  /* ── CLIENTES ── */
+  #clientes { background: var(--black); }
+  #clientes .section-title { color: var(--white); }
   .clientes-grid {
     display: flex; flex-wrap: wrap;
-    gap: 1px; background: var(--gray-mid);
-    border: 1px solid var(--gray-mid); margin-top: 3rem;
+    gap: 1px; background: #1a1a16;
+    border: 1px solid #1a1a16; margin-top: 3.5rem;
   }
   .cliente-item {
-    background: var(--white); flex: 1; min-width: 160px;
-    padding: 2.2rem 2.5rem;
+    background: var(--surface); flex: 1; min-width: 180px;
+    padding: 2.5rem 2.8rem;
     display: flex; align-items: center; justify-content: center;
     font-family: 'DM Serif Display', serif;
-    font-size: 1rem; color: var(--gray);
-    transition: background 0.2s, color 0.2s;
+    font-size: 1rem; color: #444;
+    transition: background 0.25s, color 0.25s;
     cursor: default;
   }
   .cliente-item:hover { background: var(--yellow); color: var(--black); }
 
-  /* CONTACTO */
+  /* ── EQUIPO ── */
+  #equipo { background: var(--white); }
+  .equipo-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--gray-light);
+    border: 1px solid var(--gray-light); margin-top: 4rem;
+  }
+  .miembro-card {
+    background: var(--white); padding: 2.8rem 2.4rem;
+    position: relative; overflow: hidden;
+    transition: background 0.25s;
+  }
+  .miembro-card::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 4px; height: 0; background: var(--yellow);
+    transition: height 0.35s ease;
+  }
+  .miembro-card:hover::after { height: 100%; }
+  .miembro-card:hover { background: #faf8f0; }
+  .miembro-rol {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--yellow-dark); margin-bottom: 0.8rem;
+  }
+  .miembro-nombre {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; margin-bottom: 1.8rem; color: var(--black);
+  }
+  .miembro-contacto { display: flex; flex-direction: column; gap: 0.6rem; }
+  .m-row {
+    display: flex; align-items: center; gap: 0.7rem;
+    font-size: 0.85rem; color: var(--gray);
+  }
+  .m-row svg { width: 14px; height: 14px; color: var(--yellow-dark); flex-shrink: 0; }
+  .m-row a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .m-row a:hover { color: var(--black); }
+
+  /* ── CONTACTO ── */
   #contacto {
     background: var(--black); color: var(--white);
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 6rem; align-items: center;
+    gap: 0; padding: 0;
+  }
+  .contacto-left {
+    padding: 7rem 5rem 7rem 4rem;
+    display: flex; flex-direction: column; justify-content: center;
   }
   #contacto .section-title { color: var(--white); }
-  #contacto .section-tag { color: var(--yellow); }
   .contact-sub {
-    font-size: 1rem; line-height: 1.75; color: #888; margin-bottom: 3rem;
+    font-size: 1rem; line-height: 1.8; color: #555; margin-bottom: 3.5rem;
   }
-  .contact-rows { display: flex; flex-direction: column; gap: 0; }
+  .contact-rows { display: flex; flex-direction: column; }
   .c-row {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 1.4rem 0; border-bottom: 1px solid #181818;
+    display: flex; align-items: center; gap: 1.2rem;
+    padding: 1.6rem 0; border-bottom: 1px solid #161614;
   }
   .c-row:last-child { border-bottom: none; }
   .c-icon {
-    width: 42px; height: 42px; background: #141414;
+    width: 44px; height: 44px; background: #111109;
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    border: 1px solid #1e1e1a; transition: background 0.2s, border-color 0.2s;
   }
-  .c-icon svg { width: 17px; height: 17px; color: var(--yellow); }
-  .c-lbl { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #444; margin-bottom: 0.2rem; }
-  .c-val { font-size: 0.97rem; color: var(--white); }
+  .c-row:hover .c-icon { background: var(--yellow); border-color: var(--yellow); }
+  .c-row:hover .c-icon svg { color: var(--black); }
+  .c-icon svg { width: 16px; height: 16px; color: var(--yellow); transition: color 0.2s; }
+  .c-lbl { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #333; margin-bottom: 0.2rem; }
+  .c-val { font-size: 0.95rem; color: var(--white); }
   .c-val a { color: var(--white); text-decoration: none; transition: color 0.2s; }
   .c-val a:hover { color: var(--yellow); }
 
-  .contact-card {
-    border: 1px solid #1e1e1e; padding: 3rem;
+  .contacto-right {
+    background: #080806;
+    padding: 7rem 4rem 7rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    border-left: 1px solid #161614;
   }
-  .contact-card .name {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2rem; margin-bottom: 0.3rem; color: var(--white);
+  .cta-box {
+    border: 1px solid #1e1e1a;
+    padding: 3rem;
+    position: relative;
   }
-  .contact-card .role {
-    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.13em;
-    text-transform: uppercase; color: var(--yellow-dark); margin-bottom: 2.5rem;
+  .cta-box::before {
+    content: '';
+    position: absolute; top: -1px; left: 2rem; right: 2rem; height: 3px;
+    background: var(--yellow);
   }
+  .cta-tag {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem;
+  }
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; letter-spacing: 0.05em; color: var(--white); margin-bottom: 0.8rem;
+  }
+  .cta-sub { font-size: 0.88rem; color: #444; line-height: 1.7; margin-bottom: 2.5rem; }
+  .cta-links { display: flex; flex-direction: column; gap: 1rem; }
+  .cta-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.2rem; border: 1px solid #1e1e1a;
+    text-decoration: none; color: var(--white);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .cta-link:hover { background: var(--yellow); border-color: var(--yellow); color: var(--black); }
+  .cta-link:hover svg { color: var(--black); }
+  .cta-link svg { width: 18px; height: 18px; color: var(--yellow); flex-shrink: 0; transition: color 0.2s; }
+  .cta-link-text { font-size: 0.9rem; font-weight: 500; }
+  .cta-link-sub { font-size: 0.72rem; color: #444; margin-top: 0.1rem; transition: color 0.2s; }
+  .cta-link:hover .cta-link-sub { color: rgba(0,0,0,0.6); }
 
-  /* FOOTER */
+  /* ── FOOTER ── */
   footer {
-    background: #050505; color: #3a3a3a;
-    padding: 1.8rem 4rem;
+    background: #050503; color: #2a2a26;
+    padding: 2rem 4rem;
     display: flex; align-items: center; justify-content: space-between;
-    font-size: 0.78rem; letter-spacing: 0.03em;
-    border-top: 1px solid #111;
+    font-size: 0.75rem; letter-spacing: 0.06em;
+    border-top: 1px solid #0f0f0c;
   }
-  .ft-logo { font-family: 'DM Serif Display', serif; color: #555; font-size: 0.95rem; }
+  .ft-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #3a3a36; font-size: 1rem; letter-spacing: 0.1em;
+  }
   .ft-logo span { color: var(--yellow-dark); }
 
-  /* ANIMACIONES */
+  /* ── ANIMACIONES ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(22px); }
+    from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
   @keyframes fadeIn {
-    from { opacity: 0; } to { opacity: 0.82; }
+    from { opacity: 0; } to { opacity: 1; }
   }
   .reveal {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 1.1rem 1.5rem; }
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    #hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 6rem 1.5rem 3rem; }
-    .hero-right { height: 60vw; }
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 7rem 1.5rem 3rem; }
+    .hero-right { height: 65vw; }
     .stats-bar { grid-template-columns: repeat(2,1fr); }
     section { padding: 5rem 1.5rem; }
+    .servicios-intro { flex-direction: column; align-items: flex-start; }
     .servicios-grid { grid-template-columns: 1fr; }
-    .flota-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .flota-grid .f-big { grid-column: auto; grid-row: auto; height: 220px; }
-    .flota-photo { height: 200px; }
-    #seguros, #contacto { grid-template-columns: 1fr; gap: 3rem; }
+    .flota-header { flex-direction: column; align-items: flex-start; }
+    .flota-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .f-photo.tall { grid-row: auto; height: 240px; }
+    .f-photo { height: 200px; }
+    #seguros, #contacto { grid-template-columns: 1fr; }
+    .seguros-left, .contacto-left { padding: 4rem 1.5rem; }
+    .seguros-right, .contacto-right { padding: 4rem 1.5rem; }
+    .seguros-right::before { display: none; }
+    .equipo-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+    .flota-stats { flex-wrap: wrap; }
   }
 </style>
 </head>
@@ -341,6 +527,7 @@
     <li><a href="#flota">Flota</a></li>
     <li><a href="#seguros">Seguros</a></li>
     <li><a href="#clientes">Clientes</a></li>
+    <li><a href="#equipo">Equipo</a></li>
     <li><a href="#contacto" class="nav-cta">Contacto</a></li>
   </ul>
 </nav>
@@ -350,10 +537,10 @@
   <div class="hero-left">
     <p class="hero-eyebrow">Transporte de carga · Desde 2014 · San Antonio</p>
     <h1 class="hero-title">
-      Movemos Chile<br><em>punto a punto</em>
+      Movemos<br>Chile<br><span class="accent">punto a punto</span>
     </h1>
     <p class="hero-desc">
-      Transportes González & Ugalde Ltda. ofrece carga seca y refrigerada con flota propia, cobertura nacional y monitoreo GPS en tiempo real.
+      Carga seca y refrigerada con flota propia, cobertura nacional y monitoreo GPS en tiempo real. Operamos desde el Puerto de San Antonio.
     </p>
     <div class="hero-actions">
       <a href="#contacto" class="btn-primary">Solicitar servicio</a>
@@ -361,7 +548,8 @@
     </div>
   </div>
   <div class="hero-right">
-    <img src="img/WhatsApp_Image_2026-03-25_at_4_09_18_PM.jpeg" alt="Flota González y Ugalde">
+    <!-- FOTO HERO: coloca tu imagen aquí -->
+    <img src="img/1.jpeg" alt="Flota González y Ugalde">
     <div class="hero-overlay"></div>
     <div class="hero-badge">
       <span class="num">10+</span>
@@ -369,6 +557,27 @@
     </div>
   </div>
 </section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>Carga Seca</span><span class="ticker-dot">✦</span>
+    <span>Carga Refrigerada</span><span class="ticker-dot">✦</span>
+    <span>Contenedores 40"</span><span class="ticker-dot">✦</span>
+    <span>Cobertura Nacional</span><span class="ticker-dot">✦</span>
+    <span>GPS en Tiempo Real</span><span class="ticker-dot">✦</span>
+    <span>Puerto San Antonio</span><span class="ticker-dot">✦</span>
+    <span>Seguros hasta 5.000 UF</span><span class="ticker-dot">✦</span>
+    <!-- duplicado para loop continuo -->
+    <span>Carga Seca</span><span class="ticker-dot">✦</span>
+    <span>Carga Refrigerada</span><span class="ticker-dot">✦</span>
+    <span>Contenedores 40"</span><span class="ticker-dot">✦</span>
+    <span>Cobertura Nacional</span><span class="ticker-dot">✦</span>
+    <span>GPS en Tiempo Real</span><span class="ticker-dot">✦</span>
+    <span>Puerto San Antonio</span><span class="ticker-dot">✦</span>
+    <span>Seguros hasta 5.000 UF</span><span class="ticker-dot">✦</span>
+  </div>
+</div>
 
 <!-- STATS -->
 <div class="stats-bar">
@@ -392,45 +601,50 @@
 
 <!-- SERVICIOS -->
 <section id="servicios">
-  <p class="section-tag reveal">Lo que hacemos</p>
-  <h2 class="section-title reveal">Nuestros servicios</h2>
+  <div class="servicios-intro reveal">
+    <div>
+      <p class="section-tag">Lo que hacemos</p>
+      <h2 class="section-title">Nuestros servicios</h2>
+    </div>
+    <p class="servicios-lead">Operamos con flota propia y red de terceros a lo largo de todo el territorio chileno, con experiencia en Puerto San Antonio.</p>
+  </div>
   <div class="servicios-grid">
-    <div class="servicio-card reveal">
+    <div class="servicio-card reveal" data-num="01">
       <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
       </svg>
       <h3>Carga completa punto a punto</h3>
       <p>Transporte directo sin intermediarios. Su carga llega exactamente donde necesita, en el tiempo acordado.</p>
     </div>
-    <div class="servicio-card reveal">
+    <div class="servicio-card reveal" data-num="02">
       <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
       </svg>
       <h3>Carga seca</h3>
       <p>Tracto camiones equipados para el traslado eficiente de contenedores de 40" en rutas nacionales.</p>
     </div>
-    <div class="servicio-card reveal">
+    <div class="servicio-card reveal" data-num="03">
       <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/>
+        <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3v4M8 3v4M12 11v2"/>
       </svg>
       <h3>Carga refrigerada</h3>
       <p>Unidades con sistema de frío para garantizar la cadena de frío en productos perecibles y exportación agrícola.</p>
     </div>
-    <div class="servicio-card reveal">
+    <div class="servicio-card reveal" data-num="04">
       <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
       </svg>
       <h3>Depósitos de contenedores</h3>
       <p>Transporte hacia y desde depósitos portuarios, con amplia experiencia en operaciones en Puerto San Antonio.</p>
     </div>
-    <div class="servicio-card reveal">
+    <div class="servicio-card reveal" data-num="05">
       <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><line x1="2" y1="12" x2="22" y2="12"/>
       </svg>
       <h3>Cobertura nacional</h3>
       <p>Red de flota propia y terceros a lo largo de todo el territorio chileno para cualquier destino.</p>
     </div>
-    <div class="servicio-card reveal">
+    <div class="servicio-card reveal" data-num="06">
       <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
       </svg>
@@ -442,41 +656,51 @@
 
 <!-- FLOTA -->
 <section id="flota">
-  <p class="section-tag reveal">Equipamiento</p>
-  <h2 class="section-title reveal">Nuestra flota</h2>
-  <p class="flota-intro reveal">
-    10 camiones propios más red de terceros a nivel nacional. Freightliner, International y Volvo FH con unidades refrigeradas para contenedores de 40".
-  </p>
-  <div class="flota-grid">
-    <div class="flota-photo f-big reveal">
-      <img src="img/WhatsApp_Image_2026-03-25_at_4_09_17_PM2.jpeg" alt="Flota González y Ugalde">
+  <div class="flota-header">
+    <div class="reveal">
+      <p class="section-tag" style="color:var(--yellow);">Equipamiento</p>
+      <h2 class="section-title" style="color:var(--white);">Nuestra flota</h2>
+      <p class="flota-intro">10 camiones propios más red de terceros a nivel nacional. Freightliner, International y Volvo FH con unidades refrigeradas para contenedores de 40".</p>
     </div>
-    <div class="flota-photo reveal">
-      <img src="img/WhatsApp_Image_2026-03-25_at_4_09_17_PM1.jpeg" alt="Camiones amarillos">
+    <div class="flota-stats reveal">
+      <div class="f-stat"><span class="n">10+</span><span class="l">Camiones propios</span></div>
+      <div class="f-stat"><span class="n">40"</span><span class="l">Contenedores</span></div>
+      <div class="f-stat"><span class="n">GPS</span><span class="l">Tiempo real</span></div>
     </div>
-    <div class="flota-photo reveal">
-      <img src="img/WhatsApp_Image_2026-03-25_at_4_09_17_PM3.jpeg" alt="Camión nocturno">
+  </div>
+  <!--
+    INSTRUCCIONES DE FOTOS:
+    Crea una carpeta "img/" junto al index.html y pon estas fotos con estos nombres exactos.
+    Puedes renombrar tus fotos de WhatsApp a estos nombres simples.
+  -->
+  <div class="flota-mosaic">
+    <div class="f-photo tall reveal">
+      <img src="img/2.jpeg" alt="Flota González y Ugalde">
     </div>
-    <div class="flota-photo reveal">
-      <img src="img/WhatsApp_Image_2026-03-25_at_4_09_18_PM1.jpeg" alt="Camión Freightliner">
+    <div class="f-photo reveal">
+      <img src="img/3.jpeg" alt="Camiones amarillos">
     </div>
-    <div class="flota-photo reveal">
-      <img src="WhatsApp_Image_2026-03-25_at_4_09_18_PM2.jpeg" alt="Volvo FH">
+    <div class="f-photo reveal">
+      <img src="img/4.jpeg" alt="Camión nocturno">
+    </div>
+    <div class="f-photo reveal">
+      <img src="img/5.jpeg" alt="Camión Freightliner">
+    </div>
+    <div class="f-photo reveal">
+      <img src="img/6.jpeg" alt="Volvo FH">
     </div>
   </div>
 </section>
 
 <!-- SEGUROS -->
 <section id="seguros">
-  <div>
+  <div class="seguros-left">
     <p class="section-tag reveal">Protección total</p>
     <h2 class="section-title reveal">Seguros de<br>unidades y carga</h2>
-    <p class="reveal" style="font-size:1rem;line-height:1.75;color:var(--gray);max-width:400px;">
-      Cada operación está respaldada por pólizas completas. Su mercadería viaja protegida y monitorizada desde el origen hasta el destino final.
-    </p>
+    <p class="seguros-desc reveal">Cada operación está respaldada por pólizas completas. Su mercadería viaja protegida y monitorizada desde el origen hasta el destino final.</p>
   </div>
-  <div class="seguros-box reveal">
-    <div class="seguro-row">
+  <div class="seguros-right">
+    <div class="seguro-row reveal">
       <div class="s-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -487,7 +711,7 @@
         <p>Póliza de responsabilidad civil y daños propios en todas las unidades.</p>
       </div>
     </div>
-    <div class="seguro-row">
+    <div class="seguro-row reveal">
       <div class="s-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/>
@@ -498,7 +722,7 @@
         <p>Cobertura amplia para proteger el valor total de su mercadería.</p>
       </div>
     </div>
-    <div class="seguro-row">
+    <div class="seguro-row reveal">
       <div class="s-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
@@ -514,8 +738,8 @@
 
 <!-- CLIENTES -->
 <section id="clientes">
-  <p class="section-tag reveal">Confían en nosotros</p>
-  <h2 class="section-title reveal">Algunos de nuestros clientes</h2>
+  <p class="section-tag reveal" style="color:var(--yellow);">Confían en nosotros</p>
+  <h2 class="section-title reveal" style="color:var(--white);">Algunos de nuestros clientes</h2>
   <div class="clientes-grid reveal">
     <div class="cliente-item">Real Time Logistics</div>
     <div class="cliente-item">Unifrutti</div>
@@ -525,10 +749,60 @@
   </div>
 </section>
 
+<!-- EQUIPO -->
+<section id="equipo">
+  <p class="section-tag reveal">Nuestro equipo</p>
+  <h2 class="section-title reveal">Las personas detrás<br>de cada viaje</h2>
+  <div class="equipo-grid">
+    <div class="miembro-card reveal">
+      <p class="miembro-rol">Operaciones</p>
+      <h3 class="miembro-nombre">Jorge González</h3>
+      <div class="miembro-contacto">
+        <div class="m-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <a href="tel:+56932374738">+56 9 3237 4738</a>
+        </div>
+      </div>
+    </div>
+    <div class="miembro-card reveal">
+      <p class="miembro-rol">Ventas &amp; Logística</p>
+      <h3 class="miembro-nombre">Belén Pizarro</h3>
+      <div class="miembro-contacto">
+        <div class="m-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <a href="tel:+56968667083">+56 9 6866 7083</a>
+        </div>
+        <div class="m-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <a href="mailto:belen.p.gonzalezyugalde2014@gmail.com">belen.p.gonzalezyugalde2014@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="miembro-card reveal">
+      <p class="miembro-rol">Administración &amp; Finanzas</p>
+      <h3 class="miembro-nombre">Marcela Farías</h3>
+      <div class="miembro-contacto">
+        <div class="m-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <a href="tel:+56962596398">+56 9 6259 6398</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section id="contacto">
-  <div>
-    <p class="section-tag reveal">Hablemos</p>
+  <div class="contacto-left">
+    <p class="section-tag reveal" style="color:var(--yellow);">Hablemos</p>
     <h2 class="section-title reveal">¿Necesita mover<br>su carga?</h2>
     <p class="contact-sub reveal">Contáctenos directamente. Respondemos rápido y le entregamos la solución que su operación necesita.</p>
     <div class="contact-rows reveal">
@@ -562,37 +836,45 @@
         </div>
         <div>
           <div class="c-lbl">Correo</div>
-          <div class="c-val"><a href="mailto:Logisticagonzalezyugalde@gmail.com">Logisticagonzalezyugalde@gmail.com</a></div>
+          <div class="c-val"><a href="mailto:belen.p.gonzalezyugalde2014@gmail.com">belen.p.gonzalezyugalde2014@gmail.com</a></div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="contact-card reveal">
-    <div class="name">Belén Pizarro M.</div>
-    <div class="role">Ventas &amp; Logística</div>
-    <div class="contact-rows">
-      <div class="c-row">
-        <div class="c-icon">
+  <div class="contacto-right reveal">
+    <div class="cta-box">
+      <p class="cta-tag">Contáctenos ahora</p>
+      <h3 class="cta-title">Belén Pizarro M.</h3>
+      <p class="cta-sub">Ventas &amp; Logística — disponible para cotizaciones y coordinación de servicios.</p>
+      <div class="cta-links">
+        <a href="tel:+56968667083" class="cta-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
-        </div>
-        <div>
-          <div class="c-lbl">Celular</div>
-          <div class="c-val"><a href="tel:+56968667083">+56 9 6866 7083</a></div>
-        </div>
-      </div>
-      <div class="c-row">
-        <div class="c-icon">
+          <div>
+            <div class="cta-link-text">+56 9 6866 7083</div>
+            <div class="cta-link-sub">Llamar directamente</div>
+          </div>
+        </a>
+        <a href="mailto:belen.p.gonzalezyugalde2014@gmail.com" class="cta-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
           </svg>
-        </div>
-        <div>
-          <div class="c-lbl">Email</div>
-          <div class="c-val" style="font-size:0.83rem;"><a href="mailto:Logisticagonzalezyugalde@gmail.com">Logisticagonzalezyugalde@gmail.com</a></div>
-        </div>
+          <div>
+            <div class="cta-link-text">Enviar correo</div>
+            <div class="cta-link-sub">belen.p.gonzalezyugalde2014@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://wa.me/56968667083" target="_blank" class="cta-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <div>
+            <div class="cta-link-text">WhatsApp</div>
+            <div class="cta-link-sub">Respuesta rápida</div>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -601,8 +883,8 @@
 <!-- FOOTER -->
 <footer>
   <span class="ft-logo">González <span>&</span> Ugalde Ltda.</span>
-  <span>San Antonio, Chile · Desde 2014</span>
-  <span>Transporte de carga nacional</span>
+  <span>Av Chile 909, San Antonio, Chile</span>
+  <span>Transporte de carga nacional · Desde 2014</span>
 </footer>
 
 <script>
@@ -610,11 +892,11 @@
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   reveals.forEach(el => obs.observe(el));
 </script>
 </body>
